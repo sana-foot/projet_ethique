@@ -1,0 +1,56 @@
+/* Défilement doux quand on clique sur des ancres (comme le bouton de l'en-tête) */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Flexbox pour le footer toujours en bas */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+main {
+    flex: 1;
+}
+
+/* Le Hero Section (En-tête) */
+.hero-section {
+    background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.9)), url('https://fmes-france.org/wp-content/uploads/2025/06/1.jpg') center/cover no-repeat;
+    color: white;
+    min-height: 70vh; /* Prend 70% de la hauteur de l'écran */
+}
+
+.max-w-custom {
+    max-width: 800px;
+}
+
+/* Navigation */
+.navbar .nav-link {
+    transition: color 0.3s ease;
+    font-weight: 500;
+}
+
+.navbar .nav-link:hover, .navbar .nav-link.active { 
+    color: #ffc107 !important; /* Jaune warning de Bootstrap */
+}
+
+/* Animation et design des cartes (Les "cliques") */
+.interactive-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: none;
+    border-radius: 12px;
+}
+
+.interactive-card:hover {
+    transform: translateY(-10px); /* Fait "sauter" la carte vers le haut */
+    box-shadow: 0 1rem 3rem rgba(0,0,0,.175) !important; /* Ombre plus forte */
+    border-bottom: 4px solid #ffc107; /* Soulignement jaune moderne */
+}
+
+/* Arrondir un peu les boutons */
+.btn {
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
