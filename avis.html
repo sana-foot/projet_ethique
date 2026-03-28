@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Avis - Armes Autonomes</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet"/>
     <style>
         .hero-section {
             background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
@@ -24,6 +26,34 @@
     </style>
 </head>
 <body>
+    <script>
+  /* Fade in à l'arrivée Transition effet balle */
+    document.addEventListener('DOMContentLoaded', () => {
+        document.body.classList.add('loaded');
+    });
+
+    /* Fade out au départ */
+    document.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', e => {
+        const href = link.getAttribute('href');
+
+        /* Ignorer les ancres, liens externes, et nouveaux onglets */
+        if (
+            !href ||
+            href.startsWith('#') ||
+            href.startsWith('http') ||
+            link.target === '_blank'
+        ) return;
+
+        e.preventDefault();
+        document.body.style.opacity = '0';
+
+        setTimeout(() => {
+            window.location.href = href;
+        }, 400); /* doit correspondre à la durée de transition */
+        });
+    });
+    </script>
 
     <!-- NAVBAR (copiée du style des autres pages) -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
@@ -38,21 +68,30 @@
                     <li class="nav-item"><a class="nav-link" href="techno.html">Techno</a></li>
                     <li class="nav-item"><a class="nav-link" href="ethique.html">Éthique</a></li>
                     <li class="nav-item"><a class="nav-link active" href="avis.html">Avis</a></li>
-                    <li class="nav-item"><a class="nav-link" href="conclusion.html">Conclusion</a></li>
                     <li class="nav-item"><a class="nav-link" href="equipe.html">Équipe</a></li>
                     <li class="nav-item"><a class="nav-link" href="sources.html">Sources</a></li>
                 </ul>
             </div>
         </div>
     </nav>
-
-    <!-- HERO -->
-    <header class="hero-section">
-        <div class="container">
-            <h1 class="display-3 fw-bold">Avis & Positions</h1>
-            <p class="lead">Synthèse des arguments et prise de position sur les armes autonomes</p>
+    <header class="page-header">
+        <div class="ph-inner">
+            <div class="ph-breadcrumb">
+            Avis <!-- adapter par page -->
+            </div>
+            <div class="ph-accent-line"></div>
+            <h1 class="ph-title"><em>Avis</em></h1> <!-- adapter par page -->
+            <p class="ph-desc">
+            ???? [À REMPLIR : une phrase d’accroche qui résume l’essentiel de la page, ou qui pose une question centrale.]
+            </p>
+            <div class="ph-info">Cours d'éthique — 2026</div>
+            </div>
+             <p class="ph-desc">
+            
+            </p>
         </div>
-    </header>
+
+        </header>
 
     <main class="container my-5">
 
@@ -118,7 +157,7 @@
 
     <!-- FOOTER -->
     <footer>
-        <div class="container text-center">
+        <div class="container text-center ">
             <p>&copy; 2026 - Cours d'Éthique | Projet Armes Autonomes</p>
             <a href="index.html" class="btn btn-outline-light btn-sm mt-2">Retour à l'accueil</a>
         </div>
