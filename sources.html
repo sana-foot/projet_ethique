@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sources - Armes Autonomes</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet"/>
+    <style>
+        .nav-link:hover { color: #ffc107 !important; }
+        .source-card {
+            border-left: 5px solid #212529;
+            transition: transform 0.2s;
+        }
+        .source-card:hover { transform: translateX(8px); }
+        .section-title {
+            border-bottom: 2px solid #ffc107;
+            display: inline-block;
+            margin-bottom: 25px;
+            padding-bottom: 5px;
+        }
+        footer { background: #212529; color: white; padding: 30px 0; margin-top: 50px; }
+        .badge-cat {
+            background-color: #212529;
+            color: #ffc107;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.7rem;
+            letter-spacing: 0.05em;
+        }
+        body {
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        body.loaded {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.body.classList.add('loaded');
+        });
+
+        document.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', e => {
+                const href = link.getAttribute('href');
+                if (
+                    !href ||
+                    href.startsWith('#') ||
+                    href.startsWith('http') ||
+                    link.target === '_blank'
+                ) return;
+                e.preventDefault();
+                document.body.style.opacity = '0';
+                setTimeout(() => {
+                    window.location.href = href;
+                }, 400);
+            });
+        });
+    </script>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">Éthique - Les armes autonomes</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
+                    <li class="nav-item"><a class="nav-link" href="techno.html">Techno</a></li>
+                    <li class="nav-item"><a class="nav-link" href="ethique.html">Éthique</a></li>
+                    <li class="nav-item"><a class="nav-link" href="avis.html">Avis</a></li>
+                    <li class="nav-item"><a class="nav-link" href="equipe.html">Équipe</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="sources.html">Sources</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="ph-inner">
+            <div class="ph-breadcrumb">Sources</div>
+            <div class="ph-accent-line"></div>
+            <h1 class="ph-title">Références <em>& Sources</em></h1>
+            <p class="ph-desc">
+                L'ensemble des ressources académiques ayant nourri notre réflexion sur les armes autonomes.
+            </p>
+        </div>
+    </header>
+
+    <main class="container my-5">
+
+        <!-- SECTION TECHNOLOGIE -->
+        <section class="mb-5">
+            <h2 class="section-title"><i class="bi bi-cpu me-2"></i>Technologie</h2>
+
+            <div class="row g-3">
+
+                <div class="col-12">
+                    <div class="p-4 bg-light rounded source-card">
+                        <span class="badge badge-cat mb-2">ARTICLE</span>
+                        <h5 class="fw-bold mb-1">Human Rights Watch — "Stopping Killer Robots"</h5>
+                        <p class="text-muted mb-1 small">Rapport de 2020 sur l'état du développement des systèmes d'armes létales autonomes et les appels à leur interdiction.</p>
+                        <a href="https://www.hrw.org/report/2020/08/10/stopping-killer-robots/country-positions-banning-fully-autonomous-weapons-and" target="_blank" class="btn btn-sm btn-outline-dark mt-1">
+                            <i class="bi bi-box-arrow-up-right me-1"></i>Consulter
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <div class="p-4 bg-light rounded source-card">
+                        <span class="badge badge-cat mb-2">RAPPORT</span>
+                        <h5 class="fw-bold mb-1">ICRC — "Autonomous Weapon Systems: Technical, Military, Legal and Humanitarian Aspects"</h5>
+                        <p class="text-muted mb-1 small">Rapport du Comité international de la Croix-Rouge sur les dimensions techniques et juridiques des armes autonomes.</p>
+                        <a href="https://www.icrc.org/en/document/autonomous-weapon-systems-technical-military-legal-and-humanitarian-aspects" target="_blank" class="btn btn-sm btn-outline-dark mt-1">
+                            <i class="bi bi-box-arrow-up-right me-1"></i>Consulter
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <div class="p-4 bg-light rounded source-card">
+                        <span class="badge badge-cat mb-2">ARTICLE</span>
+                        <h5 class="fw-bold mb-1">Cairn.info — <em>L'avenir de la guerre</em></h5>
+                        <p class="text-muted mb-1 small">Article analysant les transformations des conflits armés à l'ère des technologies autonomes et de l'intelligence artificielle.</p>
+                        <a href="https://www.cairn.info" target="_blank" class="btn btn-sm btn-outline-dark mt-1">
+                            <i class="bi bi-box-arrow-up-right me-1"></i>Consulter
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <div class="p-4 bg-light rounded source-card">
+                        <span class="badge badge-cat mb-2">VIDÉO</span>
+                        <h5 class="fw-bold mb-1">Future of Life Institute — "Slaughterbots" (2017)</h5>
+                        <p class="text-muted mb-1 small">Court-métrage de fiction illustrant les risques d'une prolifération des drones armés autonomes à ciblage facial.</p>
+                        <a href="https://www.youtube.com/watch?v=9CO6M2HsoIA" target="_blank" class="btn btn-sm btn-outline-dark mt-1">
+                            <i class="bi bi-box-arrow-up-right me-1"></i>Regarder
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <hr class="my-5">
+
+        <!-- SECTION ÉTHIQUE -->
+        <section class="mb-5">
+            <h2 class="section-title"><i class="bi bi-balance-scale me-2"></i>Éthique & Philosophie</h2>
+
+            <div class="row g-3">
+
+                <div class="col-12">
+                    <div class="p-4 bg-light rounded source-card">
+                        <span class="badge badge-cat mb-2">LIVRE</span>
+                        <h5 class="fw-bold mb-1">Hans Jonas — <em>Le Principe Responsabilité</em> (1979)</h5>
+                        <p class="text-muted mb-1 small">Œuvre fondatrice de l'éthique de la responsabilité face aux technologies modernes. Base de notre analyse sur l'heuristique de la peur.</p>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <div class="p-4 bg-light rounded source-card">
+                        <span class="badge badge-cat mb-2">LIVRE</span>
+                        <h5 class="fw-bold mb-1">Emmanuel Kant — <em>Fondements de la métaphysique des mœurs</em> (1785)</h5>
+                        <p class="text-muted mb-1 small">Source de l'impératif catégorique appliqué à la décision de tuer automatisée.</p>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <div class="p-4 bg-light rounded source-card">
+                        <span class="badge badge-cat mb-2">RAPPORT IFRI</span>
+                        <h5 class="fw-bold mb-1">IFRI — <em>Une guerre sans hommes ? L'ethos guerrier à l'ère des armes autonomes</em></h5>
+                        <p class="text-muted mb-1 small">Étude de l'Institut français des relations internationales sur la transformation des valeurs et de l'identité militaire face à l'automatisation du combat.</p>
+                        <a href="https://www.ifri.org" target="_blank" class="btn btn-sm btn-outline-dark mt-1">
+                            <i class="bi bi-box-arrow-up-right me-1"></i>Consulter
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <div class="p-4 bg-light rounded source-card">
+                        <span class="badge badge-cat mb-2">ARTICLE ACADÉMIQUE</span>
+                        <h5 class="fw-bold mb-1">Ronald Arkin — "Governing Lethal Behavior in Autonomous Robots" (2009)</h5>
+                        <p class="text-muted mb-1 small">Argumentation en faveur de robots militaires capables de respecter les lois de la guerre mieux que les humains sous stress.</p>
+                        <a href="https://www.cc.gatech.edu/ai/robot-lab/online-publications/ArkinIEEE09.pdf" target="_blank" class="btn btn-sm btn-outline-dark mt-1">
+                            <i class="bi bi-box-arrow-up-right me-1"></i>Consulter
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <div class="p-4 bg-light rounded source-card">
+                        <span class="badge badge-cat mb-2">ARTICLE</span>
+                        <h5 class="fw-bold mb-1">Peter Asaro — "On Banning Autonomous Weapon Systems" (2012)</h5>
+                        <p class="text-muted mb-1 small">Argumentation philosophique pour l'interdiction des systèmes létaux autonomes au nom de la dignité humaine.</p>
+                        <a href="https://doi.org/10.1017/S1816383112000768" target="_blank" class="btn btn-sm btn-outline-dark mt-1">
+                            <i class="bi bi-box-arrow-up-right me-1"></i>Consulter
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <hr class="my-5">
+
+        <!-- SECTION DROIT & INSTITUTIONS -->
+        <section class="mb-5">
+            <h2 class="section-title"><i class="bi bi-bank me-2"></i>Droit & Institutions</h2>
+
+            <div class="row g-3">
+
+                <div class="col-12">
+                    <div class="p-4 bg-light rounded source-card">
+                        <span class="badge badge-cat mb-2">RAPPORT ONU</span>
+                        <h5 class="fw-bold mb-1">Nations Unies — Groupe d'experts gouvernementaux sur les SALA (2023)</h5>
+                        <p class="text-muted mb-1 small">Débats en cours à l'ONU sur un cadre normatif pour les systèmes d'armes létales autonomes.</p>
+                        <a href="https://www.un.org/disarmament/the-convention-on-certain-conventional-weapons/background-on-laws/" target="_blank" class="btn btn-sm btn-outline-dark mt-1">
+                            <i class="bi bi-box-arrow-up-right me-1"></i>Consulter
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <div class="p-4 bg-light rounded source-card">
+                        <span class="badge badge-cat mb-2">FAQ CICR</span>
+                        <h5 class="fw-bold mb-1">CICR — <em>Questions-réponses : Ce qu'il faut savoir sur les armes autonomes</em></h5>
+                        <p class="text-muted mb-1 small">Document de référence du Comité international de la Croix-Rouge répondant aux questions essentielles sur la définition, les enjeux et les débats autour des armes autonomes.</p>
+                        <a href="https://www.icrc.org/fr/document/questions-reponses-ce-quil-faut-savoir-sur-les-armes-autonomes" target="_blank" class="btn btn-sm btn-outline-dark mt-1">
+                            <i class="bi bi-box-arrow-up-right me-1"></i>Consulter
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <div class="p-4 bg-light rounded source-card">
+                        <span class="badge badge-cat mb-2">RAPPORT GOUVERNEMENTAL</span>
+                        <h5 class="fw-bold mb-1">Parlement du Canada — <em>Systèmes d'armes autonomes : répercussions sur la sécurité internationale et sur le Canada</em></h5>
+                        <p class="text-muted mb-1 small">Analyse des implications géopolitiques, juridiques et stratégiques des armes autonomes pour la sécurité internationale et la politique de défense canadienne.</p>
+                        <a href="https://www.noscommunes.ca" target="_blank" class="btn btn-sm btn-outline-dark mt-1">
+                            <i class="bi bi-box-arrow-up-right me-1"></i>Consulter
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <div class="p-4 bg-light rounded source-card">
+                        <span class="badge badge-cat mb-2">TEXTE JURIDIQUE</span>
+                        <h5 class="fw-bold mb-1">Protocoles additionnels aux Conventions de Genève (1977)</h5>
+                        <p class="text-muted mb-1 small">Cadre juridique international du droit des conflits armés (distinction, proportionnalité, précaution) applicable aux armes autonomes.</p>
+                        <a href="https://www.icrc.org/fr/droit-international-humanitaire/traites-et-droit-coutumier/protocoles-additionnels" target="_blank" class="btn btn-sm btn-outline-dark mt-1">
+                            <i class="bi bi-box-arrow-up-right me-1"></i>Consulter
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <div class="p-4 bg-light rounded source-card">
+                        <span class="badge badge-cat mb-2">RAPPORT ONU</span>
+                        <h5 class="fw-bold mb-1">ONU — <em>Résolution A/RES/79/62 sur les systèmes d'armes autonomes létaux</em> (2 décembre 2024)</h5>
+                        <p class="text-muted mb-1 small">Résolution de l'Assemblée générale des Nations Unies appelant à encadrer le développement et l'utilisation des systèmes d'armes létales autonomes.</p>
+                        <a href="https://undocs.org/A/RES/79/62" target="_blank" class="btn btn-sm btn-outline-dark mt-1">
+                            <i class="bi bi-box-arrow-up-right me-1"></i>Consulter
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <div class="p-4 bg-light rounded source-card">
+                        <span class="badge badge-cat mb-2">SOUMISSION ONU</span>
+                        <h5 class="fw-bold mb-1">Human Rights Watch — <em>Submission to the UN Secretary-General on Autonomous Weapons Systems</em> (mai 2024)</h5>
+                        <p class="text-muted mb-1 small">Soumission officielle de Human Rights Watch au Secrétaire général de l'ONU, appelant à un traité contraignant pour interdire les systèmes d'armes létales autonomes.</p>
+                        <a href="https://www.hrw.org" target="_blank" class="btn btn-sm btn-outline-dark mt-1">
+                            <i class="bi bi-box-arrow-up-right me-1"></i>Consulter
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <div class="p-4 bg-light rounded source-card">
+                        <span class="badge badge-cat mb-2">ARTICLE — SIPRI / CICR</span>
+                        <h5 class="fw-bold mb-1">V. Boulanin & M. Bo (SIPRI) — <em>« Three lessons on the regulation of AWS to ensure accountability for violations of IHL »</em>, ICRC Humanitarian Law & Policy Blog (mars 2023)</h5>
+                        <p class="text-muted mb-1 small">Analyse de trois leçons clés tirées des débats sur la régulation des armes autonomes pour garantir la responsabilité en cas de violations du droit international humanitaire.</p>
+                        <a href="https://blogs.icrc.org/law-and-policy" target="_blank" class="btn btn-sm btn-outline-dark mt-1">
+                            <i class="bi bi-box-arrow-up-right me-1"></i>Consulter
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <div class="p-4 bg-light rounded source-card">
+                        <span class="badge badge-cat mb-2">ESSAI — SIPRI</span>
+                        <h5 class="fw-bold mb-1">V. Boulanin, A. Blanchard & D. Lopes da Silva (SIPRI) — <em>« Before it's too late: Why a world of interacting AI agents demands new safeguards »</em> (octobre 2025)</h5>
+                        <p class="text-muted mb-1 small">Essai du Stockholm International Peace Research Institute alertant sur les risques systémiques liés à l'interaction entre agents IA autonomes dans les conflits armés.</p>
+                        <a href="https://www.sipri.org" target="_blank" class="btn btn-sm btn-outline-dark mt-1">
+                            <i class="bi bi-box-arrow-up-right me-1"></i>Consulter
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <div class="p-4 bg-light rounded source-card">
+                        <span class="badge badge-cat mb-2">REVUE JURIDIQUE</span>
+                        <h5 class="fw-bold mb-1">Temple University Law Review — <em>« LAWS: Accountability, Collateral Damage and the Inadequacies of International Law »</em> (novembre 2024)</h5>
+                        <p class="text-muted mb-1 small">Article de droit examinant les lacunes du droit international face aux systèmes d'armes létales autonomes, notamment en matière de responsabilité et de dommages collatéraux.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <hr class="my-5">
+
+        <!-- SECTION PRESSE & MÉDIAS -->
+        <section class="mb-5">
+            <h2 class="section-title"><i class="bi bi-newspaper me-2"></i>Presse & Médias</h2>
+
+            <div class="row g-3">
+
+                <div class="col-12">
+                    <div class="p-4 bg-light rounded source-card">
+                        <span class="badge badge-cat mb-2">ARTICLE DE PRESSE</span>
+                        <h5 class="fw-bold mb-1">Le Monde — "Des drones tueurs sans pilote humain, une réalité de plus en plus proche"</h5>
+                        <p class="text-muted mb-1 small">Analyse journalistique sur les avancées des programmes militaires autonomes en 2024.</p>
+                        <a href="https://www.lemonde.fr" target="_blank" class="btn btn-sm btn-outline-dark mt-1">
+                            <i class="bi bi-box-arrow-up-right me-1"></i>Lire
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <div class="p-4 bg-light rounded source-card">
+                        <span class="badge badge-cat mb-2">DOCUMENTAIRE</span>
+                        <h5 class="fw-bold mb-1">Arte — "iHuman" (2019)</h5>
+                        <p class="text-muted mb-1 small">Documentaire explorant les conséquences de l'IA sur la société, incluant les usages militaires et les questions de contrôle humain.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- NOTE MÉTHODOLOGIQUE -->
+        <div class="mt-4 p-4 border-start border-5 border-warning bg-light rounded">
+            <h5 class="fw-bold"><i class="bi bi-info-circle me-2"></i>Note méthodologique</h5>
+            <p class="mb-0 text-muted">Ce projet a été réalisé dans le cadre d'un cours d'éthique. Les sources ont été sélectionnées pour représenter une diversité de perspectives — académique, institutionnelle, journalistique et philosophique — afin de nourrir un débat équilibré sur les armes autonomes.</p>
+        </div>
+
+    </main>
+
+    <footer>
+        <div class="container text-center">
+            <p>&copy; 2026 - Cours d'Éthique | Projet Armes Autonomes</p>
+            <p class="small text-muted">Réalisé dans le cadre d'une réflexion philosophique sur l'IA et la guerre.</p>
+            <a href="index.html" class="btn btn-outline-light btn-sm mt-2">Retour à l'accueil</a>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
