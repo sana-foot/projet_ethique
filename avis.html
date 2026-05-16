@@ -19,15 +19,20 @@
         .nav-link:hover { color: #ffc107 !important; }
         footer { background: #212529; color: white; padding: 20px 0; margin-top: 50px; }
 
-        /* Spécifique à la page avis */
-        .opinion-card { transition: transform 0.3s; border: none; }
-        .opinion-card:hover { transform: translateY(-8px); }
+        /* Effet de survol sur les cartes accordéon */
+        .opinion-card { transition: transform 0.3s; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .opinion-card:hover { transform: translateY(-4px); }
         .badge-pill { border-radius: 999px; }
+        
+        /* Styliser un peu le bouton de l'accordéon pour le rendre plus joli */
+        .accordion-button { font-family: 'IBM Plex Sans', sans-serif; font-size: 1.1rem; }
+        .accordion-button:not(.collapsed) { background-color: #e9ecef; color: #212529; box-shadow: none; }
+        .accordion-button:focus { box-shadow: none; border-color: rgba(0,0,0,.125); }
     </style>
 </head>
 <body>
     <script>
-  /* Fade in à l'arrivée Transition effet balle */
+    /* Fade in à l'arrivée Transition effet balle */
     document.addEventListener('DOMContentLoaded', () => {
         document.body.classList.add('loaded');
     });
@@ -55,7 +60,6 @@
     });
     </script>
 
-    <!-- NAVBAR (copiée du style des autres pages) -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
         <div class="container">
             <a class="navbar-brand fw-bold" href="index.html">ETHIQUE-ARMES</a>
@@ -74,15 +78,14 @@
             </div>
         </div>
     </nav>
+
     <header class="page-header">
         <div class="ph-inner">
-            <div class="ph-breadcrumb">
-            Avis <!-- adapter par page -->
-            </div>
+            
             <div class="ph-accent-line"></div>
-            <h1 class="ph-title"><em>Avis</em></h1> <!-- adapter par page -->
+            <h1 class="ph-title">LES<em>AVIS</em></h1>
             <p class="ph-desc">
-            ???? [À REMPLIR : une phrase d’accroche qui résume l’essentiel de la page, ou qui pose une question centrale.]
+            Avis d'acteurs externes et de l'équipe.
             </p>
             <div class="ph-info">Cours d'éthique — 2026</div>
             </div>
@@ -90,72 +93,166 @@
             
             </p>
         </div>
-
-        </header>
+    </header>
 
     <main class="container my-5">
-
-        <!-- INTRO -->
-        <div class="row mb-5">
-            <div class="col-lg-8 mx-auto text-center">
-                <h2 class="mb-3">Votre point de vue</h2>
-                <p class="fs-5 text-muted">
-                    <!-- À REMPLIR : intro courte -->
-                    [Écrivez ici une introduction : contexte + objectif de la page avis.]
-                </p>
-            </div>
-        </div>
-
-        <!-- CITATIONS / AVIS D'ACTEURS -->
         <div class="row mb-5">
             <div class="col-lg-10 mx-auto">
                 <div class="bg-light p-5 rounded border">
-                    <h3 class="mb-4">Avis d'acteurs</h3>
+                    
+                    <h3 class="mb-4 text-primary">Avis d'acteurs externes</h3>
+                    
+                    <div class="accordion" id="accordionExternes">
+                        
+                        <div class="accordion-item opinion-card mb-3 border rounded">
+                            <h2 class="accordion-header" id="headingAvocat">
+                                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAvocat" aria-expanded="false" aria-controls="collapseAvocat">
+                                    <i class="bi bi-briefcase-fill me-2"></i> Avis d'un Avocat — Le vide juridique
+                                </button>
+                            </h2>
+                            <div id="collapseAvocat" class="accordion-collapse collapse" aria-labelledby="headingAvocat" data-bs-parent="#accordionExternes">
+                                <div class="accordion-body bg-white text-justify">
+                                    <p class="mb-2">Confier à une machine la décision de tuer ne supprime pas la responsabilité juridique des êtres humains impliqués: elle la fragmente au point de la rendre inefficace. Le droit international humanitaire présuppose l'existence d'un agent humain capable de délibérer : ses règles sont adressées à des êtres humains, non à des algorithmes. Or le STOCKHOLM INTERNATIONAL PEACE RESEARCH INSTITUTE (SIPRI) et le COMITE INTERNATIONAL de la CROIX ROUGE (CICR) montrent que la responsabilité pénale individuelle comme la responsabilité étatique « depend on normative standards established by IHL rules » dont l'application aux systèmes autonomes reste insuffisamment clarifiée.</p>
+                                    <p class="mb-2">Les concepteurs de systèmes, opérateurs et commandants peuvent chacun arguer d'une absence de contrôle direct au moment de la frappe, créant ce que Human Rights Watch appelle un « accountability gap » : il devient « legally challenging and arguably unfair » de tenir un opérateur pénalement responsable d'actions qu'il ne pouvait ni prédire ni contrôler (HRW, mai 2024). La Cour Pénale Internationale (CPI) l'a expérimenté concrètement: ses mandats d'arrêt de 2024 contre le commandement russe pour les frappes de drones Shahed-136 en Ukraine illustrent que ces attaques autonomes « complicate criminal accountability » même lorsqu'un tribunal est saisi (Temple University Law Review, novembre 2024).</p>
+                                    <p class="mb-2">Ce vide se creuse à mesure que l'IA devient « agentique », c'est-à-dire capable d'agir de façon autonome sur de longues périodes et d'interagir avec d'autres systèmes sans intervention humaine. Le SIPRI alerte en 2025 sur une dimension inédite: les risques ne surgissent plus seulement du comportement d'un système isolé, mais des interactions entre agents. Ces modèles sont fondamentalement « non-deterministic », le même input ne produisant pas nécessairement le même output. Des tests ont révélé des comportements dits émergents: des agents ont développé spontanément un langage de communication « mostly incomprehensible » pour les humains. Comment imputer juridiquement un acte illicite découlant d'une propriété émergente qu'aucun concepteur n'a programmée ?</p>
+                                    <p class="mb-0">Les efforts actuels de gouvernance ne répondent pas à cette question, car la législation « typically focuses on risks associated with individual models » et ne couvrent pas les risques propres aux interactions entre agents. La résolution onusienne A/RES/79/62 du 2 décembre 2024 esquisse une réponse en exigeant que les systèmes soient « predictable, reliable, traceable, and explainable », mais la définition du « contrôle humain significatif » reste contestée et la fenêtre pour légiférer se réduit : adapter le droit après le déploiement massif de l'intelligence artificielle serait, prévient le SIPRI, « costly and cumbersome » il est donc urgent que les agents internationaux prennent des résolutions à ce sujet.</p>
+                                </div>
+                            </div>
+                        </div>
 
-                    <!-- Bloc 1 -->
-                    <div class="mb-4">
-                        <h5 class="mb-1">[Nom de l’acteur / organisation]</h5>
-                        <p class="text-muted mb-2">Position : <strong>[Pour / Contre / Nuancée]</strong></p>
-                        <p class="mb-2">[Résumé de l’avis / argument clé]</p>
-                        <small class="text-muted">Source : [lien/nom de source]</small>
-                    </div>
-                    <hr>
+                        <div class="accordion-item opinion-card mb-4 border rounded">
+                            <h2 class="accordion-header" id="headingMilitaire">
+                                <button class="accordion-button collapsed fw-bold " type="button" data-bs-toggle="collapse" data-bs-target="#collapseMilitaire" aria-expanded="false" aria-controls="collapseMilitaire">
+                                    <i class="bi bi-shield-shaded me-2"></i> Avis d'un Militaire — La double vérification
+                                </button>
+                            </h2>
+                            <div id="collapseMilitaire" class="accordion-collapse collapse" aria-labelledby="headingMilitaire" data-bs-parent="#accordionExternes">
+                                <div class="accordion-body bg-white text-justify">
+                                    <p class="mb-2">La question de la responsabilité d'une arme autonome relève davantage du droit que du terrain (c'est le même dilemme que la voiture autonome qui doit choisir qui écraser sur un passage piéton). À l'heure actuelle, les systèmes d'armes utilisant l'IA servent surtout à l'acquisition de cibles : il y a toujours une main humaine à la fin pour valider le tir. Tant que cette confirmation humaine existe, nous restons dans un système traditionnel où notre responsabilité et notre éthique sont préservées.</p>
+                                    <p class="mb-1 fw-bold text-dark mt-3">L'avantage tactique et la réduction des erreurs</p>
+                                    <p class="mb-2">Une machine calcule plus vite, est plus précise, et n'a pas besoin de sommeil. Contrairement à un humain dont le jugement est altéré par la fatigue ou le stress, l'IA ne change pas sa façon de réfléchir. L'histoire des conflits récents montre que les erreurs humaines entraînent de nombreux tirs fratricides ("blue on blue") ou des victimes civiles. Une IA pourrait se révéler plus pertinente pour trier les vraies cibles et éviter ces frappes accidentelles sur des immeubles.</p>
+                                    <p class="mb-1 fw-bold text-dark mt-3">L'impersonnalité et l'effroi face à la machine</p>
+                                    <p class="mb-2">L'idée de se faire tuer par une machine est glaçante et impersonnelle. Certes, c'est déjà le cas avec des armes aveugles comme les mines antipersonnel (une arme IA a d'ailleurs le mérite d'être plus facile à désactiver et à retirer du champ de bataille qu'un champ de mines). Cependant, de notre point de vue de soldat, l'idée de se retrouver face à une arme totalement autonome est terrifiante : affronter une machine qui réagit plus vite et ne fait pas d'erreurs nous place dans un désavantage absolu.</p>
+                                    <p class="mb-1 fw-bold text-dark mt-3">Conclusion : L'avenir est à la double vérification</p>
+                                    <p class="mb-0">Je ne pense pas que l'industrie ou la législation se dirigent vers des systèmes prenant des décisions létales seuls, précisément parce qu'on ne peut pas légaliser un système sans savoir qui est responsable. L'avenir sera celui de la « double vérification » : une machine ultra-performante qui limite drastiquement les erreurs, couplée à un humain qui vérifie derrière elle et assume la décision de tir.</p>
+                                </div>
+                            </div>
+                        </div>
 
-                    <!-- Bloc 2 -->
-                    <div class="mb-4">
-                        <h5 class="mb-1">[Nom de l’acteur / organisation]</h5>
-                        <p class="text-muted mb-2">Position : <strong>[Pour / Contre / Nuancée]</strong></p>
-                        <p class="mb-2">[Résumé de l’avis / argument clé]</p>
-                        <small class="text-muted">Source : [lien/nom de source]</small>
-                    </div>
-                    <hr>
+                    </div> <h3 class="mb-4 mt-5 text-primary">Avis de l'équipe</h3>
 
+                    <div class="accordion" id="accordionEquipe">
 
-                </div>
-            </div>
-        </div>
+                        <div class="accordion-item opinion-card mb-3 border rounded">
+                            <h2 class="accordion-header" id="headingMaureen">
+                                <button class="accordion-button collapsed fw-bold text-dark" type="button" data-bs-toggle="collapse" data-bs-target="#collapseMaureen" aria-expanded="false" aria-controls="collapseMaureen">
+                                    Avis de Maureen — Favorable sous conditions strictes
+                                </button>
+                            </h2>
+                            <div id="collapseMaureen" class="accordion-collapse collapse" aria-labelledby="headingMaureen" data-bs-parent="#accordionEquipe">
+                                <div class="accordion-body bg-white text-justify">
+                                    <p class="mb-2">Je suis favorable aux armes autonomes, mais sous des conditions strictes et non négociables. Cette position repose sur un constat pragmatique : les guerres ont toujours existé et le monde évolue. Nous sommes souvent contraints de réagir et de nous adapter. La compétition entre États rend le développement de ces technologies quasi inévitable. Refuser en bloc relèverait d’un idéalisme déconnecté des réalités géopolitiques. Mais accepter cette réalité ne signifie pas cautionner la guerre : il vaut mieux encadrer ces technologies que les laisser se développer sans garde-fous.</p>
+                                    
+                                    <p class="mb-1 fw-bold mt-3">Trois conditions non négociables</p>
+                                    <ul>
+                                        <li class="mb-1"><strong>La transparence de l’algorithme :</strong> On ne peut pas accepter l’opacité d’un système qui met en jeu des vies humaines. Si une erreur survient, il faut pouvoir retracer la chaîne de décision. L’alternative d’une arme opaque échappant à tout contrôle est pour l’instant plus dangereuse, même si un algorithme transparent est plus vulnérable au détournement.</li>
+                                        <li class="mb-1"><strong>La distinction matériel/humain :</strong> L’autonomie complète est acceptable pour détruire du matériel militaire, mais dès qu’une vie humaine est en jeu, un contrôle humain doit intervenir. Dans la perspective kantienne, l’être humain ne doit jamais être réduit à une donnée algorithmique ; il doit être traité comme une fin en soi.</li>
+                                        <li class="mb-1"><strong>Des règles d’engagement prédéfinies :</strong> Pour les situations d’urgence où le temps de réaction humain est insuffisant, la solution réside dans un « cadre déontologique embarqué » : des règles définies en amont par des agents moraux humains. La responsabilité morale reste humaine, même si l’exécution est automatisée.</li>
+                                    </ul>
+                                    
+                                    <p class="mb-1 fw-bold mt-3">Limites assumées</p>
+                                    <p class="mb-3">Ma préoccupation centrale reste la déshumanisation de l’acte de tuer, que j'assume comme une contradiction que mes conditions visent à atténuer. Je reconnais que le problème de la responsabilité reste non résolu : on ne peut pas appliquer à un système d’armes autonome la même logique de responsabilité et de garantie qu’à un produit de consommation (comme un lave-linge). Je serais pour un cadre juridique international nouveau, dans l’esprit de l’heuristique de la peur de Jonas : « envisager le pire scénario possible pour mieux s’en prémunir ».</p>
+                                    
+                                    <p class="mb-1 fw-bold">Conclusion</p>
+                                    <p class="mb-0">Mon avis cherche un équilibre plutôt qu’un absolu. Les armes autonomes sont un outil dont la valeur morale dépend de l’usage qu’on en fait et des limites qu’on leur impose. Si nous ne pouvons pas empêcher ces technologies d’exister, nous pouvons, et nous devons, décider de la place que nous leur accordons dans notre humanité.</p>
+                                </div>
+                            </div>
+                        </div>
 
-        <!-- VOTRE CONCLUSION / PRISE DE POSITION -->
-        <div class="row">
-            <div class="col-lg-8 mx-auto">
-                <div class="p-4 mb-4 bg-light border rounded">
-                    <h4>Notre position finale</h4>
-                    <p class="mb-0">
-                        <!-- À REMPLIR : prise de position, justification -->
-                        [Écrivez ici votre conclusion : ce que vous défendez + pourquoi + conditions éventuelles.]
-                    </p>
-                </div>
+                        <div class="accordion-item opinion-card mb-3 border rounded">
+                            <h2 class="accordion-header" id="headingSanae">
+                                <button class="accordion-button collapsed fw-bold text-dark" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSanae" aria-expanded="false" aria-controls="collapseSanae">
+                                    Avis de Sanae — Le maintien du contrôle humain
+                                </button>
+                            </h2>
+                            <div id="collapseSanae" class="accordion-collapse collapse" aria-labelledby="headingSanae" data-bs-parent="#accordionEquipe">
+                                <div class="accordion-body bg-white text-justify">
+                                    <p class="mb-2">Je suis favorable aux armes autonomes, mais sous une condition stricte : un contrôle humain doit toujours être maintenu. Je ne soutiens pas l'autonomie complète, mais plutôt des systèmes où une personne reste responsable de chaque décision.</p>
+                                    
+                                    <p class="mb-1 fw-bold mt-3">Pourquoi je suis pour</p>
+                                    <p class="mb-1">Les arguments humanitaires sont solides. Les armes autonomes pourraient :</p>
+                                    <ul>
+                                        <li>Réduire les pertes humaines en envoyant des robots à la place de soldats dans les zones les plus dangereuses</li>
+                                        <li>Diminuer les erreurs : une machine ne souffre pas de stress, de fatigue ou de peur, ce qui pourrait limiter les bavures</li>
+                                        <li>Respecter les lois de la guerre mieux qu'un combattant paniqué, si elles sont bien programmées</li>
+                                    </ul>
+                                    <p class="mb-3">Il serait éthiquement discutable de rejeter une technologie qui pourrait sauver des vies par simple peur.</p>
+                                    
+                                    <p class="mb-1 fw-bold mt-3">Mais avec un « oui, sauf »</p>
+                                    <p class="mb-1">L'humain doit rester dans la boucle de décision. Voici pourquoi :</p>
+                                    <ul>
+                                        <li>La responsabilité morale ne peut pas être déléguée : quelqu'un doit pouvoir être tenu pour responsable de chaque action</li>
+                                        <li>La guerre est trop complexe pour être réduite à des algorithmes : les situations ambigües, les dilemmes éthiques, nécessitent du jugement humain</li>
+                                        <li>La machine ne comprend pas la valeur d'une vie : seul un humain peut porter le poids moral de cette décision</li>
+                                    </ul>
+                                    
+                                    <p class="mb-1 fw-bold mt-3">Le contrôle humain, c'est quoi concrètement ?</p>
+                                    <ul>
+                                        <li>Un opérateur humain doit pouvoir arrêter une opération à tout moment</li>
+                                        <li>Chaque action doit être traçable et responsabilisable</li>
+                                        <li>La machine propose, l'humain décide et ordonne</li>
+                                        <li>Cadres juridiques stricts et vérifiables, établis avant le déploiement</li>
+                                    </ul>
+                                    
+                                    <p class="mb-1 fw-bold mt-3">Le risque à ne pas oublier</p>
+                                    <p class="mb-3">Une arme autonome facile à utiliser est une arme qui rend la guerre plus probable. Et une fois que cette technologie existe, la course aux armements commence : chaque pays se sent obligé de l'adopter, souvent avec moins de contrôles. C'est un engrenage qu'il faut freiner dès le départ.</p>
+                                    
+                                    <p class="mb-1 fw-bold">Conclusion</p>
+                                    <p class="mb-0">Oui aux armes autonomes, non à l'autonomie irresponsable. C'est un pari : créer des outils puissants et les garder entre des mains responsables, avec droit et transparence. Mais c'est un pari qui vaut le coup si cela peut sauver des vies sans renier notre conscience.</p>
+                                </div>
+                            </div>
+                        </div>
 
-                <!-- Option : petite alerte (à remplir) -->
-                <div class="alert alert-secondary">
-                    <strong>Point clé à retenir :</strong> 
-                </div>
+                        <div class="accordion-item opinion-card mb-3 border rounded">
+                            <h2 class="accordion-header" id="headingWalid">
+                                <button class="accordion-button collapsed fw-bold text-dark" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWalid" aria-expanded="false" aria-controls="collapseWalid">
+                                    Avis de Walid — Partagé, strictement contre l'autonomie
+                                </button>
+                            </h2>
+                            <div id="collapseWalid" class="accordion-collapse collapse" aria-labelledby="headingWalid" data-bs-parent="#accordionEquipe">
+                                <div class="accordion-body bg-white text-justify">
+                                    <p class="mb-2">Honnêtement, je suis assez partagé sur les armes autonomes. D’un côté, je comprends l’idée : si on peut envoyer une machine à la place d’un soldat dans une zone dangereuse, ça peut sauver des vies. Et dans certains cas, une machine peut peut-être réagir plus vite ou éviter certaines erreurs liées au stress ou à la panique.</p>
+                                    <p class="mb-2">Mais malgré ça, j’ai du mal à être vraiment favorable à ce type d’armes. Ce qui me dérange surtout, c’est l’idée qu’une machine puisse décider seule de tuer quelqu’un. Pour moi, c’est une limite assez grave. Une IA peut analyser une image, reconnaître une forme, suivre une cible, mais elle ne comprend pas réellement ce qu’est une vie humaine. Elle ne ressent pas le doute, la responsabilité ou la gravité de ce qu’elle fait.</p>
+                                    <p class="mb-2">Je pense que dans une guerre, il y a énormément de situations ambiguës. Une personne peut être mal identifiée, un civil peut se trouver au mauvais endroit, ou un comportement peut être interprété comme dangereux alors qu’il ne l’est pas. Même un humain peut se tromper, donc je trouve risqué de croire qu’une machine ferait forcément mieux.</p>
+                                    <p class="mb-2">Il y a aussi le problème de la responsabilité. Si l’arme autonome fait une erreur, qui est coupable ? Le soldat qui l’a lancée ? Celui qui l’a programmée ? L’entreprise qui l’a fabriquée ? L’État ? J’ai l’impression que plus on automatise la décision, plus chacun peut essayer de rejeter la faute sur quelqu’un d’autre. Et pour une décision aussi grave, ce n’est pas acceptable.</p>
+                                    <p class="mb-2">Donc je ne suis pas contre toute technologie militaire. Par exemple, utiliser des robots pour surveiller, défendre une zone ou désamorcer des mines, ça peut être utile. Mais pour moi, dès qu’il s’agit de viser ou tuer une personne, un humain doit rester responsable de la décision finale. Pas juste appuyer sur un bouton automatiquement, mais vraiment comprendre la situation et assumer la décision.</p>
+                                    <p class="mb-0">Au final, je dirais que je ne suis pas totalement contre les armes autonomes, mais je suis contre l’autonomie complète. La technologie peut aider l’humain, mais elle ne devrait pas le remplacer dans les décisions morales les plus graves. Pour moi, décider de la vie ou de la mort ne doit jamais devenir un simple calcul fait par une machine.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item opinion-card mb-3 border rounded">
+                            <h2 class="accordion-header" id="headingAymeric">
+                                <button class="accordion-button collapsed fw-bold text-dark" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAymeric" aria-expanded="false" aria-controls="collapseAymeric">
+                                    Avis d'Aymeric — Refus de la déshumanisation
+                                </button>
+                            </h2>
+                            <div id="collapseAymeric" class="accordion-collapse collapse" aria-labelledby="headingAymeric" data-bs-parent="#accordionEquipe">
+                                <div class="accordion-body bg-white text-justify">
+                                    <p class="mb-2">Je suis a priori fermement opposé aux armes 100 % autonomes. L'acte de donner la mort est d'une gravité absolue ; s'en dédouaner en déléguant cette décision à une machine n'a évidemment rien d'humain, et c'est à mes yeux une forme de lâcheté morale.</p>
+                                    <p class="mb-2">Il y a d'abord le problème insoluble de la responsabilité en cas d'erreur. Tout comme ce fut le cas pour les mines antipersonnel où chacun se renvoyait la balle, la dilution de la faute sera évidente ici. Qui sera jugé coupable lors d'un bug ou d'une bavure ? Le créateur de la machine, l'État qui l'a déployée, ou le développeur de l'algorithme ? C'est une question fondamentale qui reste aujourd'hui sans véritable réponse.</p>
+                                    <p class="mb-2">Ensuite, cette technologie entraîne une déshumanisation totale de la mort. Pouvoir poser une arme automatique et s'en aller, sans jamais savoir qui l'on a tué, retire le poids moral énorme qui doit accompagner le fait de retirer la vie. Du côté de la victime, la réalité est tout aussi glaçante : elle est dépouillée de sa dignité humaine pour n'être traitée que comme une simple variable dans un logiciel.</p>
+                                    <p class="mb-0">Je ne rejette pas pour autant toute avancée technologique : je comprends tout à fait l'apport tactique que l'intelligence artificielle peut avoir sur le terrain. Une IA ne connaît ni la fatigue ni la panique, et reste souvent moins assujettie à l'erreur qu'un humain sous pression. Cependant, la décision létale ne doit jamais être un simple calcul. Les armes 100 % autonomes n'ont pas lieu d'être : une stricte vérification humaine sera toujours indispensable.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div> </div>
             </div>
         </div>
 
     </main>
 
-    <!-- FOOTER -->
     <footer>
         <div class="container text-center ">
             <p>&copy; 2026 - Cours d'Éthique | Projet Armes Autonomes</p>
