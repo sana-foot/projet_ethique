@@ -5,56 +5,106 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Technologie - Armes Autonomes</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
     <link href="styles.css" rel="stylesheet"/>
     <style>
-        .hero-section {
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://fmes-france.org/wp-content/uploads/2025/06/1.jpg');
-            background-size: cover;
-            color: white;
-            padding: 100px 0;
-            text-align: center;
-        }
         .nav-link:hover { color: #ffc107 !important; }
-        .tech-card { transition: transform 0.3s; border: none; shadow: 0 4px 8px rgba(0,0,0,0.1); }
-        .tech-card:hover { transform: translateY(-10px); }
-        .icon-box { font-size: 2rem; color: #e74c3c; margin-bottom: 15px; }
-        footer { background: #212529; color: white; padding: 20px 0; margin-top: 50px; }
+        .tech-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: none;
+            border-left: 5px solid #212529;
+        }
+        .tech-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 1rem 2rem rgba(0,0,0,.12) !important;
+            border-left-color: #ffc107;
+        }
+        .icon-box {
+            font-size: 2.2rem;
+            color: #ffc107;
+            margin-bottom: 15px;
+        }
+        .section-title {
+            border-bottom: 2px solid #ffc107;
+            display: inline-block;
+            margin-bottom: 25px;
+            padding-bottom: 5px;
+        }
+        .process-step {
+            position: relative;
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 12px;
+            padding: 28px;
+            height: 100%;
+        }
+        .step-number {
+            font-family: 'IBM Plex Mono', monospace;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background: #212529;
+            color: #ffc107;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 14px;
+        }
+        .warning-box {
+            border-left: 5px solid #dc3545;
+            background: #fff5f5;
+        }
+        .definition-box {
+            border-left: 5px solid #ffc107;
+            background: #fffbea;
+        }
+        footer {
+            background: #212529;
+            color: white;
+            padding: 30px 0;
+            margin-top: 50px;
+        }
+        body {
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        body.loaded {
+            opacity: 1;
+        }
     </style>
 </head>
 <body>
     <script>
-  /* Fade in à l'arrivée Transition effet balle */
-    document.addEventListener('DOMContentLoaded', () => {
-        document.body.classList.add('loaded');
-    });
-
-    /* Fade out au départ */
-    document.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', e => {
-        const href = link.getAttribute('href');
-
-        /* Ignorer les ancres, liens externes, et nouveaux onglets */
-        if (
-            !href ||
-            href.startsWith('#') ||
-            href.startsWith('http') ||
-            link.target === '_blank'
-        ) return;
-
-        e.preventDefault();
-        document.body.style.opacity = '0';
-
-        setTimeout(() => {
-            window.location.href = href;
-        }, 400); /* doit correspondre à la durée de transition */
+        document.addEventListener('DOMContentLoaded', () => {
+            document.body.classList.add('loaded');
         });
-    });
+
+        document.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', e => {
+                const href = link.getAttribute('href');
+                if (
+                    !href ||
+                    href.startsWith('#') ||
+                    href.startsWith('http') ||
+                    link.target === '_blank'
+                ) return;
+
+                e.preventDefault();
+                document.body.style.opacity = '0';
+
+                setTimeout(() => {
+                    window.location.href = href;
+                }, 400);
+            });
+        });
     </script>
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="index.html">ETHIQUE-ARMES</a>
+            <a class="navbar-brand fw-bold" href="index.html">Éthique - Les armes autonomes</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -70,80 +120,211 @@
             </div>
         </div>
     </nav>
+
     <header class="page-header">
         <div class="ph-inner">
-            <div class="ph-breadcrumb">
-            Technologie <!-- adapter par page -->
-            </div>
+            <div class="ph-breadcrumb">Technologie</div>
             <div class="ph-accent-line"></div>
-            <h1 class="ph-title">LA<em>TECHNOLOGIE</em> DES SALA</h1> <!-- adapter par page -->
+            <h1 class="ph-title">La <em>Technologie</em> des armes autonomes</h1>
             <p class="ph-desc">
-            Comprendre le fonctionnement des Systèmes d'Armes Létaux Autonomes
+                Comprendre comment les systèmes d'armes létaux autonomes perçoivent,
+                analysent et agissent sans intervention humaine directe.
             </p>
-            <div class="ph-info">Cours d'éthique — 2026</div>
-            </div>
-             <p class="ph-desc">
-            
-            </p>
+
         </div>
     </header>
-    
 
     <main class="container my-5">
-        <div class="row mb-5">
-            <div class="col-lg-8 mx-auto text-center">
-                <h2 class="mb-4">Comment l'IA prend-elle le contrôle ?</h2>
-                <p class="fs-5 text-muted">Contrairement aux drones télécommandés, les armes autonomes utilisent des algorithmes pour traiter des données en temps réel et prendre des décisions sans intervention humaine.</p>
-            </div>
-        </div>
 
-        <div class="row g-4 mb-5">
-            <div class="col-md-4">
-                <div class="card h-100 tech-card p-4 shadow-sm">
-                    <div class="icon-box">👁️</div>
-                    <h4>Perception</h4>
-                    <p>Utilisation de capteurs (LIDAR, caméras thermiques, radars) pour cartographier l'environnement et détecter des objets.</p>
+        <section class="mb-5">
+            <div class="row align-items-center g-4">
+                <div class="col-lg-7">
+                    <h2 class="section-title">Qu'est-ce qu'une arme autonome ?</h2>
+                    <p class="fs-5 text-muted">
+                        Une arme autonome n'est pas seulement une arme télécommandée. C'est un système capable de traiter des données,
+                        d'identifier une cible et d'agir selon des paramètres définis à l'avance.
+                    </p>
+                    <p>
+                        Aujourd'hui, l'informatique occupe une place centrale dans l'armement. Une arme moderne peut intégrer des capteurs,
+                        des logiciels de traitement de données, des algorithmes d'intelligence artificielle et des systèmes de communication.
+                        Le problème éthique apparaît lorsque l'usage de la force ne dépend plus directement du jugement humain.
+                    </p>
                 </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card h-100 tech-card p-4 shadow-sm">
-                    <div class="icon-box">🧠</div>
-                    <h4>Analyse</h4>
-                    <p>Des algorithmes de <em>Deep Learning</em> comparent les cibles avec des bases de données pour identifier amis ou ennemis.</p>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card h-100 tech-card p-4 shadow-sm">
-                    <div class="icon-box">🎯</div>
-                    <h4>Action</h4>
-                    <p>Le système décide seul de la trajectoire et de l'ouverture du feu selon les paramètres de sa mission.</p>
-                </div>
-            </div>
-        </div>
-
-        
-
-        <div class="row">
-            <div class="col-lg-10 mx-auto">
-                <div class="bg-light p-5 rounded border">
-                    <h3 class="mb-4">L'Autonomie vs Automatisation</h3>
-                    <p>Il est crucial de différencier ces deux concepts pour votre cours d'éthique :</p>
-                    <ul class="list-group list-group-flush bg-transparent">
-                        <li class="list-group-item bg-transparent"><strong>Système Automatisé :</strong> Suit une suite d'instructions rigides (ex: une mine).</li>
-                        <li class="list-group-item bg-transparent"><strong>Système Autonome :</strong> S'adapte à des situations imprévues grâce à l'apprentissage automatique.</li>
-                    </ul>
-                    
-                    <div class="alert alert-danger mt-4">
-                        <strong>Le défi technique :</strong> Le "biais algorithmique". Si l'IA est entraînée sur des données incomplètes, elle peut confondre un civil tenant un outil avec un combattant armé.
+                <div class="col-lg-5">
+                    <div class="p-4 rounded bg-dark text-white shadow-sm">
+                        <h4 class="text-warning mb-3"><i class="bi bi-exclamation-triangle me-2"></i>Question centrale</h4>
+                        <p class="mb-0">
+                            Si une machine peut sélectionner et engager une cible, qui porte réellement la responsabilité en cas d'erreur :
+                            l'opérateur, le fabricant, le programmeur ou le commandement militaire ?
+                        </p>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
+
+        <hr class="my-5">
+
+        <section class="mb-5">
+            <h2 class="section-title">Le cycle de décision</h2>
+            <p class="text-muted mb-4">
+                Le fonctionnement d'une arme autonome peut être résumé en trois grandes étapes : percevoir, analyser, puis agir.
+            </p>
+
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="process-step shadow-sm">
+                        <span class="step-number">01</span>
+                        <div class="icon-box"><i class="bi bi-eye"></i></div>
+                        <h4>Perception</h4>
+                        <p>
+                            Le système observe son environnement grâce à des capteurs : caméras, radars, infrarouge, LIDAR ou microphones.
+                            Ces données servent à détecter des objets, des véhicules ou des personnes.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="process-step shadow-sm">
+                        <span class="step-number">02</span>
+                        <div class="icon-box"><i class="bi bi-cpu"></i></div>
+                        <h4>Analyse</h4>
+                        <p>
+                            Des algorithmes comparent les données reçues avec des modèles ou des bases d'apprentissage afin d'estimer
+                            si l'objet détecté correspond à une menace ou à une cible militaire.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="process-step shadow-sm">
+                        <span class="step-number">03</span>
+                        <div class="icon-box"><i class="bi bi-bullseye"></i></div>
+                        <h4>Action</h4>
+                        <p>
+                            Le système applique ensuite les paramètres de mission : suivre, neutraliser ou attaquer une cible. C'est cette
+                            étape qui pose le plus grand problème lorsqu'elle n'est plus validée par un humain.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-5">
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="p-4 rounded definition-box h-100">
+                        <h3 class="mb-3">Automatisation</h3>
+                        <p>
+                            Un système automatisé suit une suite d'instructions fixes. Il réagit à une situation prévue à l'avance,
+                            sans véritable adaptation au contexte.
+                        </p>
+                        <p class="mb-0"><strong>Exemple :</strong> une mine qui explose lorsqu'une pression suffisante est détectée.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="p-4 rounded definition-box h-100">
+                        <h3 class="mb-3">Autonomie</h3>
+                        <p>
+                            Un système autonome peut adapter son comportement à des situations variables. Il interprète des données,
+                            classe des informations et prend une décision selon des critères programmés.
+                        </p>
+                        <p class="mb-0"><strong>Exemple :</strong> un drone capable de sélectionner une cible dans une zone donnée.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr class="my-5">
+
+        <section class="mb-5">
+            <h2 class="section-title">Les limites techniques</h2>
+            <p class="text-muted mb-4">
+                La technologie donne une impression de précision, mais elle reste dépendante de ses données, de ses capteurs et de ses concepteurs.
+            </p>
+
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="card h-100 tech-card p-4 shadow-sm">
+                        <h4><i class="bi bi-person-x text-danger me-2"></i>Erreur d'identification</h4>
+                        <p>
+                            Une IA peut mal interpréter une situation réelle : mauvaise luminosité, capteurs perturbés,
+                            cible partiellement visible ou confusion entre un civil et un combattant.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card h-100 tech-card p-4 shadow-sm">
+                        <h4><i class="bi bi-diagram-3 text-danger me-2"></i>Biais algorithmique</h4>
+                        <p>
+                            Si les données utilisées pour entraîner le système sont incomplètes ou biaisées,
+                            l'arme peut reproduire ces erreurs dans ses décisions.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card h-100 tech-card p-4 shadow-sm">
+                        <h4><i class="bi bi-eye-slash text-danger me-2"></i>Manque d'explicabilité</h4>
+                        <p>
+                            Il est parfois difficile de comprendre pourquoi une IA a pris une décision précise.
+                            Or, dans le cas d'une décision létale, l'opacité technique devient moralement problématique.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card h-100 tech-card p-4 shadow-sm">
+                        <h4><i class="bi bi-shield-lock text-danger me-2"></i>Risque de piratage</h4>
+                        <p>
+                            Comme tout système informatique, une arme autonome peut être exposée au piratage,
+                            au brouillage des communications ou au détournement de ses objectifs.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-5">
+            <div class="p-5 rounded warning-box">
+                <h2 class="mb-3">Pourquoi cette technologie pose un problème éthique ?</h2>
+                <p>
+                    Le danger ne vient pas seulement de la puissance militaire de ces armes. Il vient surtout du déplacement de la décision :
+                    l'humain risque de ne plus être celui qui juge directement, mais celui qui délègue à une machine le pouvoir d'identifier
+                    et de frapper une cible.
+                </p>
+                <p class="mb-0">
+                    Ainsi, la technologie transforme la responsabilité morale. Elle peut rendre la décision plus rapide,
+                    mais aussi plus opaque, plus distante et plus difficile à assumer.
+                </p>
+            </div>
+        </section>
+
+        <section class="mb-5">
+            <h2 class="section-title">Pistes de maîtrise</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="p-4 bg-light rounded h-100 border">
+                        <h4>Contrôle humain</h4>
+                        <p class="mb-0">Garder un humain dans la boucle pour toute décision létale.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="p-4 bg-light rounded h-100 border">
+                        <h4>Traçabilité</h4>
+                        <p class="mb-0">Conserver les données permettant de comprendre les décisions du système.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="p-4 bg-light rounded h-100 border">
+                        <h4>Cadre juridique</h4>
+                        <p class="mb-0">Définir clairement les responsabilités du fabricant, du commandement et de l'opérateur.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </main>
 
     <footer>
         <div class="container text-center">
             <p>&copy; 2026 - Cours d'Éthique | Projet Armes Autonomes</p>
+            <p class="small text-muted">Réalisé dans le cadre d'une réflexion philosophique sur l'IA et la guerre.</p>
             <a href="index.html" class="btn btn-outline-light btn-sm mt-2">Retour à l'accueil</a>
         </div>
     </footer>
